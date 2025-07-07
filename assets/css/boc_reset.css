@@ -1,0 +1,184 @@
+
+
+/* --- General Glass Container --- */
+  .map-section {
+    background: linear-gradient(135deg, rgba(6, 6, 6, 0.05), rgba(9, 9, 9, 0.1));
+    padding: 3rem 1rem;
+    color: #e0e0e0;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+  }
+
+  .map-text h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 0 0 5px rgba(255,255,255,0.3);
+  }
+
+  .map-text p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* --- Map Container with Glassmorphism --- */
+ .map-container {
+  position: relative;
+  /* max-width: 1000px;       */
+  height: auto;         /* added height */
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: rgba(9, 9, 9, 0.07);
+  /* box-shadow:
+    0 8px 32px 0 rgba(7, 7, 7, 0.37); */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(5, 5, 5, 0.18);
+}
+
+.map-image {
+  width: 100%;
+  height: 100%;       /* make image cover full height */
+  object-fit: cover;  /* scale image nicely */
+  display: block;
+  border-radius: 15px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(3, 80, 79, 0.9);
+  box-shadow:
+    0 0 8px 2px rgba(255, 255, 255, 0.8),
+    0 0 15px 4px rgba(255, 255, 255, 0.3);
+  animation: pulse 2.5s infinite;
+  z-index: 5;
+
+  /* NEW: Center inner dot */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Desktop dot positions */
+.dot1 { top: 56%; left: 69.7%; } /* Hyderabad */
+.dot2 { top: 35%; left: 45%; } /* UK */
+.dot3 { top: 45%; left: 75%; } /* China */
+.dot4 { top: 43%; left: 50.8%; } /* Italy */
+.dot5 { top: 29%; left: 18%; } /* Canada */
+.dot6 { top: 52%; left: 63%; } /* Dubai */
+.dot7 { top: 35%; left: 50%; } /* Germany */
+
+/* Mobile dot positions */
+@media (max-width: 768px) {
+  .dot1 { top: 50%; left: 69%; } /* Hyderabad */
+  .dot2 { top: 35%; left: 45%; } /* UK */
+  .dot3 { top: 40%; left: 72%; } /* China */
+  .dot4 { top: 42%; left: 50%; } /* Italy */
+  .dot5 { top: 25%; left: 18%; } /* Canada */
+  .dot6 { top: 49%; left: 61%; } /* Dubai */
+  .dot7 { top: 33%; left: 49%; } /* Germany */
+
+  
+}
+
+
+  @keyframes pulse {
+    0% { transform: scale(0.85); opacity: 0.7; }
+    50% { transform: scale(1.3); opacity: 0.3; }
+    100% { transform: scale(0.85); opacity: 0.7; }
+  }
+
+  /* --- Plane --- */
+  .moving-plane {
+    position: absolute;
+    width: 45px; /* increased size */
+    height: auto;
+    z-index: 10;
+    pointer-events: none;
+   
+    transition: top 1.8s cubic-bezier(0.4, 0, 0.2, 1), left 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center center;
+  }
+
+.inner-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+
+
+  /* Responsive */
+ @media (max-width: 768px) {
+  .map-section {
+    padding: 2rem 1rem;
+  }
+
+  .map-text h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  .map-text p {
+    font-size: 1rem;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.4;
+  }
+
+   .map-container {
+    max-width: 100vw;      /* full viewport width */
+    width: calc(100vw - 2rem); /* allow some side padding */
+    height: auto;          /* auto height to keep aspect ratio */
+    aspect-ratio: 16 / 9;  /* maintain map aspect ratio */
+    margin: 0 auto;
+  }
+
+  .map-image {
+    width: 100%;   /* fill container width */
+    height: 100%;  /* fill container height */
+    object-fit: contain;  /* contain whole image inside */
+    border-radius: 15px;
+  }
+
+  .dot {
+    width: 14px;
+    height: 14px;
+    box-shadow:
+      0 0 6px 1.5px rgba(255, 255, 255, 0.7),
+      0 0 10px 2px rgba(255, 255, 255, 0.2);
+  }
+
+  .moving-plane {
+    width: 30px;
+  }
+
+.dot {
+    width: 14px;
+    height: 14px;
+    box-shadow:
+      0 0 6px 1.5px rgba(255, 255, 255, 0.7),
+      0 0 10px 2px rgba(255, 255, 255, 0.2);
+  }
+
+  .inner-dot {
+    width: 4px;
+    height: 4px;
+  }
+}
