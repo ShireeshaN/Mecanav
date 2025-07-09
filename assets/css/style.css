@@ -2902,8 +2902,9 @@ button {
     z-index: 1;
 }
 
+
 .contact1-section {
-    background: url('../images/brands/bri.webp') center center / cover no-repeat;
+    background: url('../images/applications/od3.webp') center center / cover no-repeat;
     height: 50vh;
     /* 50% of the viewport height */
     width: 100%;
