@@ -126,52 +126,49 @@
 
  
 @media (max-width: 768px) {
-  div[style*="display: flex"] {
-    flex-direction: column;
-    gap: 0; 
-  }
+      .container {
+        flex-direction: column;
+      }
 
-  .sidebar {
-    width: 100%;
-    box-shadow: none;
-    margin-bottom: 0; 
-    padding-bottom: 0; 
-  }
+      .sidebar {
+        width: 100%;
+        box-shadow: none;
+        padding: 20px 15px;
+      }
 
-  .main-content {
-    width: 100%;
-    margin-top: 0; 
-    padding-top: 0; 
-  }
+      .sidebar h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
 
-  .main-content img  {
-    width: 100%;
-    height: auto;
-    margin: 0 auto; 
+      .main-content {
+        height: auto;
+        flex: 1;
+        justify-content: center;
+        align-items: flex-end;
+        padding: 10px;
+      }
 
-   
-  }
+      .main-content img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
 
-  .control-buttons {
-    margin-top: 10px; 
-    gap: 10px;
-   padding-top: 25px;
-  }
+      .control-buttons {
+        margin-top: 15px;
+        gap: 10px;
+        padding-bottom: 20px;
+      }
 
-  .control-btn {
-    flex: 1 1 48%;
-    font-size: 14px;
-    padding: 10px 12px; 
-   
-  }
+      .control-btn {
+        flex: 1 1 48%;
+        font-size: 14px;
+        padding: 10px 12px;
+      }
 
-  .toggle-group {
-    margin-bottom: 12px; 
-    padding: 10px;
-  }
-
-  .sidebar h1 {
-    font-size: 20px;
-    margin-bottom: 15px;
-  }
-}
+      .toggle-group {
+        margin-bottom: 12px;
+        padding: 5px 0;
+      }
+    }
