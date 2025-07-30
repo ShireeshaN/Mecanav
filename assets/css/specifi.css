@@ -1,4 +1,4 @@
- .specifications-table-section h3 {
+ /* .specifications-table-section h3 {
     font-size: 1.8rem;
     margin-bottom: 20px;
   }
@@ -31,7 +31,7 @@
 
   .specifications-table tbody tr:last-child td {
     border-bottom: none;
-  }
+  } */
 
 
   .product-code-section {
