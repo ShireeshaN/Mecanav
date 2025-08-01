@@ -1,47 +1,121 @@
- .specifications-table-section h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+.glass-table-wrapper {
+  position: relative;
+  border-radius: 16px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+/* ✅ Background Zoom Animation */
+.glass-table-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/logo/WW-12V-NP-1.1.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes zoomInOut {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* ✅ Scrollable Table Wrapper */
+.table-scroll-container {
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(200, 200, 200, 0.3); /* ✅ Light Gray Border */
+}
+
+.table-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.table-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ✅ Table Styling */
+.specifications-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* ✅ Rounded Corners on Table */
+.specifications-table thead tr:first-child th:first-child {
+  border-top-left-radius: 16px;
+}
+.specifications-table thead tr:first-child th:last-child {
+  border-top-right-radius: 16px;
+}
+.specifications-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 16px;
+}
+.specifications-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 16px;
+}
+
+/* ✅ Header */
+.specifications-table thead {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+/* ✅ Cell Styles */
+.specifications-table th,
+.specifications-table td {
+  padding: 12px 20px;
+  text-align: left;
+  vertical-align: middle;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ✅ Last Row Bottom Border */
+.specifications-table tbody tr:last-child td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ✅ Hover Effect */
+.specifications-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.specifications-table-section h3{
+  padding-top: 15px;
+  font-size: 1.7rem;
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
+  .specifications-table-section h3 {
+    font-size: 1.5rem;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 
   .specifications-table {
-    width: 100%;
-    border-collapse: collapse;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    border-radius: 8px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
+    font-size: 14px;
   }
-
-  .specifications-table thead {
-    background-color: #9e9fa0;
-    color: #060606;
-  }
-
-  .specifications-table th,
-  .specifications-table td {
-    padding: 12px 20px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    vertical-align: middle;
-  }
-
-  .specifications-table tbody tr:hover {
-    background-color: #3c3d3d;
-  }
-
-  .specifications-table tbody tr:last-child td {
-    border-bottom: none;
-  } */
-
-
-  .product-code-section {
-  margin-top: 40px;
 }
 
-.product-code-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
+
 
 .product-code-table {
   width: 100%;

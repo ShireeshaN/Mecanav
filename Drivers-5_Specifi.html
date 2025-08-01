@@ -428,153 +428,70 @@
 </section>
 
 <!-- ✅ Glass Styled Specifications Table Section -->
-<section class="specifications-table-section" data-aos="fade-up" style="margin-top: 40px;">
+<section class="specifications-table-section" data-aos="fade-up">
   <h3>Specifications Table</h3>
   <div class="glass-table-wrapper">
-    <table class="specifications-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th>Value</th>
-          <th>Feature</th>
-          <th>Value</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Input Voltage</td>
-          <td>100 – 265V AC</td>
-          <td>Output Voltage</td>
-          <td>12V/24V</td>
-        </tr>
-        <tr>
-          <td>Output Wattage</td>
-          <td>60W/80W/100W</td>
-          <td>IP Rating</td>
-          <td>IP66</td>
-        </tr>
-        <tr>
-          <td>Frequency</td>
-          <td>50Hz/60Hz</td>
-          <td>Power Factor</td>
-          <td>>0.9</td>
-        </tr>
-        <tr>
-           <tr>
-          <td>Frequency</td>
-          <td>50Hz/60Hz</td>
-          <td>Power Factor</td>
-          <td>>0.9</td>
-        </tr>
-         <tr>
-          <td>Frequency</td>
-          <td>50Hz/60Hz</td>
-          <td>Power Factor</td>
-          <td>>0.9</td>
-        </tr>
-         <tr>
-          <td>Frequency</td>
-          <td>50Hz/60Hz</td>
-          <td>Power Factor</td>
-          <td>>0.9</td>
-        </tr>
-          <td>Efficiency</td>
-          <td>>88%</td>
-          <td>Protection</td>
-          <td>Overload, Short Circuit</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-scroll-container">
+      <table class="specifications-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Value</th>
+            <th>Feature</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Input Voltage</td>
+            <td>100 – 265V AC</td>
+            <td>Output Voltage</td>
+            <td>12V/24V</td>
+          </tr>
+          <tr>
+            <td>Output Wattage</td>
+            <td>60W/80W/100W</td>
+            <td>IP Rating</td>
+            <td>IP66</td>
+          </tr>
+          <tr>
+            <td>Frequency</td>
+            <td>50Hz/60Hz</td>
+            <td>Power Factor</td>
+            <td>>0.9</td>
+          </tr>
+          <tr>
+            <td>Efficiency</td>
+            <td>>88%</td>
+            <td>Protection</td>
+            <td>Overload, Short Circuit</td>
+          </tr>
+          <tr>
+            <td>Efficiency</td>
+            <td>>88%</td>
+            <td>Protection</td>
+            <td>Overload, Short Circuit</td>
+          </tr>
+          <tr>
+            <td>Efficiency</td>
+            <td>>88%</td>
+            <td>Protection</td>
+            <td>Overload, Short Circuit</td>
+          </tr>
+          <tr>
+            <td>Efficiency</td>
+            <td>>88%</td>
+            <td>Protection</td>
+            <td>Overload, Short Circuit</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </section>
 
-<style>
 
-/* ✅ Section Title */
-.specifications-table-section h3 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-align: start;
-}
 
-/* ✅ Glass Wrapper with Zooming Product Background */
-.glass-table-wrapper {
-  position: relative;
-  border-radius: 16px;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(0px);
-  -webkit-backdrop-filter: blur(0px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
-}
-
-/* ✅ Zoom In-Out Background Image */
-.glass-table-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('assets/images/logo/ssss.png') center center no-repeat;
-  background-size: 500px;
-  opacity: 0.35;
-  z-index: 0;
-  animation: zoomInOut 10s ease-in-out infinite;
-  transform-origin: center;
-}
-
-/* ✅ Zoom Keyframes */
-@keyframes zoomInOut {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.08);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* ✅ Table Design */
-.specifications-table {
-  width: 100%;
-  border-collapse: collapse;
-  position: relative;
-  z-index: 1;
-  color: #ffffff;
-  font-family: 'Arial', sans-serif;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* ✅ Table Head */
-.specifications-table thead {
-  background-color: rgba(255, 255, 255, 0.12);
-  color: #fff;
-}
-
-/* ✅ Table Cells */
-.specifications-table th,
-.specifications-table td {
-  padding: 12px 20px;
-  text-align: left;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  background-color: rgba(255, 255, 255, 0.03);
-  vertical-align: middle;
-}
-
-/* ✅ Row Hover Effect */
-.specifications-table tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.06);
-}
-
-/* ✅ No Border for Last Row */
-.specifications-table tbody tr:last-child td {
-  border-bottom: none;
-}
-</style>
 
 
 
