@@ -1,3 +1,6 @@
+.specifications-table-section{
+
+}
 .glass-table-wrapper {
   position: relative;
   border-radius: 16px;
@@ -7,10 +10,12 @@
   -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   overflow: hidden;
+    background-color: #282929;
 }
 
 /* ✅ Background Zoom Animation */
 .glass-table-wrapper::before {
+  
   content: "";
   position: absolute;
   inset: 0;
