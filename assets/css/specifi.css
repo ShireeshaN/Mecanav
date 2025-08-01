@@ -14,8 +14,8 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: url('../images/logo/WW-12V-NP-1.1.png') center center no-repeat;
-  background-size: 800px;
+  background: url('../images/logo/sd.png') center center no-repeat;
+  background-size: 600px;
   opacity: 0.25;
   z-index: 0;
   animation: zoomInOut 10s ease-in-out infinite;
@@ -146,23 +146,25 @@
 }
 
 
-    /* Base Styles */
+/* Base Styles */
 html {
   scroll-behavior: smooth;
 }
 
+  
 .hero-carousel {
   position: relative;
   width: 100%;
-  
-  margin: 0 auto 30px auto;
-  height: 300px;
+  height: 320px;
+  margin: 0 auto 40px auto;
   overflow: hidden;
-
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  background: #000; /* fallback background */
+  border-radius: 20px; /* ✅ Full curve */
+  background: linear-gradient(to right, #0f0f0f, #1e1e1e);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7); /* ✅ Deep 3D shadow */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* ✅ Subtle frame */
+  perspective: 1000px; /* ✅ 3D environment */
 }
-
+/* ✅ Rounded corners for each image inside carousel */
 .carousel-track {
   display: flex;
   transition: transform 0.5s ease-in-out;
@@ -175,25 +177,41 @@ html {
   height: 100%;
   object-fit: cover;
   flex-shrink: 0;
-  pointer-events: none;
   user-select: none;
-  border-radius: 0; /* no extra border */
+  pointer-events: none;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* ✅ Inner shadow */
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel-track img:hover {
+  transform: scale(1.03) rotateY(3deg); /* ✅ Tilt effect */
+  box-shadow: 0 25px 40px rgba(0,0,0,0.5); /* ✅ Glow on hover */
 }
 
 
+/* ✅ Buttons enhanced */
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
   border: none;
-  color: white;
-  font-size: 24px;
-  padding: 6px 14px;
+  color: #fff;
+  font-size: 28px;
+  padding: 8px 16px;
   cursor: pointer;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
-  z-index: 10;
+  z-index: 2;
+  transition: 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1) translateY(-50%);
 }
 
 .carousel-btn.prev {
@@ -243,9 +261,13 @@ html {
 }
 
 @media (max-width: 768px) {
-  .hero-carousel {
+ .hero-carousel {
     height: 200px;
-    padding: 8px;
+    border-radius: 14px;
+  }
+
+  .carousel-track img {
+    border-radius: 14px;
   }
 
   .hero-text h1 {
