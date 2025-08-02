@@ -1,6 +1,4 @@
-.specifications-table-section{
 
-}
 .glass-table-wrapper {
   position: relative;
   border-radius: 16px;
@@ -103,7 +101,8 @@
   background-color: rgba(255, 255, 255, 0.08);
 }
 .specifications-table-section h3{
-  padding-top: 15px;
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-size: 1.7rem;
 }
 
