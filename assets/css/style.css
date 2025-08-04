@@ -2140,10 +2140,10 @@ button {
 /* 02 - footer - start
 ==================================================================================================== */
 
-.footer-section .brand-logo>a {
+footer.footer-section .brand-logo>a {
     max-width: 100px;
     display: inline-block;
-    background-color: white !important;
+    background-color: red !important;
     
 }
 
