@@ -12,18 +12,245 @@
 }
 
 /* ✅ Background Zoom Animation */
-.glass-table-wrapper::before {
+/* strip */
+.glass-table-wrapper-strip::before {
   
   content: "";
   position: absolute;
   inset: 0;
-  background: url('../images/logo/sd.png') center center no-repeat;
-  background-size: 600px;
+  background: url('../images/specifibg/Strip.png') center center no-repeat;
+  background-size: 800px;
   opacity: 0.25;
   z-index: 0;
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
+/* strip end */
+
+/* dot */
+.glass-table-wrapper-dot::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/dot.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* dot end */
+
+/* window */
+ .glass-table-wrapper-window::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Wall Window.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* window */
+
+/* ground */
+ .glass-table-wrapper-ground::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/ground.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* ground */
+
+/* neon */
+ .glass-table-wrapper-neon::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Neon.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* neon */
+
+/* wallwash */
+ .glass-table-wrapper-Wall-Wash::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Wall wahser.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* wallwash */
+
+/* gobo */
+.glass-table-wrapper-gobo::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Gobo.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* gobo */
+
+/* tree */
+.glass-table-wrapper-tree::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Tree.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* tree */
+
+/* bar */
+.glass-table-wrapper-tree::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Bar.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* bar */
+
+/* Pillar */
+.glass-table-wrapper-pillar::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Pillar.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* pillar */
+
+/* pool */
+.glass-table-wrapper-pool::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Pool.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* pool */
+
+/* dmx */
+.glass-table-wrapper-dmx::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/DMX.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* dmx */
+
+/* panel */
+.glass-table-wrapper-panel::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/panel.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* panel */
+
+/* fan */
+.glass-table-wrapper-fan::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/fan.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* fan */
+
+/* fountain */
+.glass-table-wrapper-fountain::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/Fountain.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* fountain */
+
+/* drivers */
+.glass-table-wrapper-Drivers::before {
+  
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../images/specifibg/driver.png') center center no-repeat;
+  background-size: 800px;
+  opacity: 0.25;
+  z-index: 0;
+  animation: zoomInOut 10s ease-in-out infinite;
+  transform-origin: center;
+}
+/* drivers */
 
 @keyframes zoomInOut {
   0% { transform: scale(1); }
