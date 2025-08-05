@@ -2143,7 +2143,8 @@ button {
 footer.footer-section .brand-logo>a {
     max-width: 100px;
     display: inline-block;
-    background-color: red !important;
+
+  
     
 }
 
