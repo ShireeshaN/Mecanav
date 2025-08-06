@@ -1,5 +1,5 @@
 
-.glass-table-wrapper {
+/* .glass-table-wrapper {
   position: relative;
   border-radius: 16px;
   padding: 10px;
@@ -11,8 +11,8 @@
     background-color: #282929;
 }
 
-/* ✅ Background Zoom Animation */
-/* strip */
+
+
 .glass-table-wrapper-strip::before {
   
   content: "";
@@ -25,9 +25,9 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* strip end */
 
-/* dot */
+
+
 .glass-table-wrapper-dot::before {
   
   content: "";
@@ -40,9 +40,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* dot end */
 
-/* window */
  .glass-table-wrapper-window::before {
   
   content: "";
@@ -55,9 +53,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* window */
 
-/* ground */
  .glass-table-wrapper-ground::before {
   
   content: "";
@@ -70,9 +66,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* ground */
 
-/* neon */
  .glass-table-wrapper-neon::before {
   
   content: "";
@@ -85,9 +79,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* neon */
 
-/* wallwash */
  .glass-table-wrapper-Wall-Wash::before {
   
   content: "";
@@ -100,9 +92,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* wallwash */
 
-/* gobo */
 .glass-table-wrapper-gobo::before {
   
   content: "";
@@ -115,9 +105,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* gobo */
 
-/* tree */
 .glass-table-wrapper-tree::before {
   
   content: "";
@@ -130,9 +118,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* tree */
 
-/* bar */
 .glass-table-wrapper-bar::before {
   
   content: "";
@@ -145,9 +131,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* bar */
 
-/* Pillar */
 .glass-table-wrapper-pillar::before {
   
   content: "";
@@ -160,9 +144,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* pillar */
 
-/* pool */
 .glass-table-wrapper-pool::before {
   
   content: "";
@@ -175,9 +157,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* pool */
 
-/* dmx */
 .glass-table-wrapper-dmx::before {
   
   content: "";
@@ -190,9 +170,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* dmx */
 
-/* panel */
 .glass-table-wrapper-panel::before {
   
   content: "";
@@ -205,9 +183,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* panel */
 
-/* fan */
 .glass-table-wrapper-fan::before {
   
   content: "";
@@ -220,9 +196,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* fan */
 
-/* fountain */
 .glass-table-wrapper-fountain::before {
   
   content: "";
@@ -235,9 +209,7 @@
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
 }
-/* fountain */
 
-/* drivers */
 .glass-table-wrapper-Drivers::before {
   
   content: "";
@@ -249,8 +221,8 @@
   z-index: 0;
   animation: zoomInOut 10s ease-in-out infinite;
   transform-origin: center;
-}
-/* drivers */
+} */
+
 
 @keyframes zoomInOut {
   0% { transform: scale(1); }
@@ -756,6 +728,170 @@ html {
     width: 100px;
   }
 }
+
+
+
+
+/* Background Section */
+.product-showcase {
+  background: #3f3f3f;
+  padding: 70px 0;
+  margin: 40px 0 50px;
+  border-radius: 13px;
+  width: 100% !important;
+}
+
+/* Layout Flex (Desktop Default) */
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+/* Premium Heading Styling */
+.text {
+  flex: 0 0 35%;
+}
+.text h2 {
+  font-family: "Playfair Display", serif;
+  color: #acaaaa;
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+.text h2 .line1 {
+  font-size: 58px;
+  display: block;
+}
+
+/* Product Styling */
+.product {
+  flex: 0 0 auto;
+  position: relative;
+  perspective: 1000px;
+  text-align: center;
+}
+
+/* Product Image (Desktop Default) */
+.product-image {
+  
+  width: 100%;
+  height: 300px;
+  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.35)) contrast(110%) brightness(105%);
+  animation: zoom-in-out 4s ease-in-out infinite;
+}
+
+@keyframes zoom-in-out {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Soft Glow Under Image */
+.glow {
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 350px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(0,0,0,0.2), transparent 75%);
+  filter: blur(12px);
+  opacity: 0.7;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN ONLY 
+   ========================== */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .text {
+    flex: 100%;
+    text-align: center;
+  }
+  .text h2 .line1 {
+    font-size: 48px;
+  }
+  .product-image {
+    width: 65% !important; /* Scaled properly for tablets */
+  }
+  .glow {
+    width: 280px;
+  }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  .product-showcase {
+    padding: 50px 20px;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .text {
+    flex: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .text h2 {
+    font-size: 26px;
+  }
+
+  .text h2 .line1 {
+    font-size: 36px;
+    line-height: 1.3;
+  }
+
+  /* Make product image larger and centered like specs background */
+  .product-image {
+    width: 100% !important;
+    max-width: 420px; /* Large image for mobile view */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .glow {
+    width: 250px;
+    bottom: -25px;
+  }
+}
+
+/* Extra Small Mobiles (max-width: 480px) */
+@media (max-width: 480px) {
+  .text h2 {
+    font-size: 22px;
+  }
+
+  .text h2 .line1 {
+    font-size: 30px;
+  }
+
+  .product-image {
+    width: 95% !important;
+    max-width: 360px; /* Still larger */
+  }
+
+  .glow {
+    width: 200px;
+  }
+}
+
 
 
 
