@@ -504,6 +504,154 @@
       </div>
     </section>
 
+
+      <style>
+        /* Search Section */
+.search-section {
+  text-align: center;
+  margin: 30px auto;
+}
+.search-heading {
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 15px;
+}
+.search-bar {
+  background: white;
+  padding: 15px;
+  max-width: 700px;
+  margin: 0 auto 30px;
+  display: flex;
+  gap: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+}
+.search-bar button {
+  background: #0052D4;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.search-bar button:hover { background: #003bb3; }
+
+/* Map & Locations */
+.locator-container {
+  display: none;  /* Hide initially */
+}
+
+#map {
+  flex: 2;
+  min-width: 300px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.locations-list {
+  flex: 1;
+  min-width: 300px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: #aaa5a5;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.location-card {
+  border-bottom: 1px solid ;
+  padding: 15px 0;
+}
+.location-card:last-child { border-bottom: none; }
+.location-card h4 { margin-bottom: 5px; color: #000; }
+.location-card p { font-size: 0.9rem; color: #000000; margin-bottom: 4px; }
+.location-card i { color: #000; margin-right: 6px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .locator-container { flex-direction: column; }
+}
+      </style>
+<!-- Search Section -->
+<section class="search-section">
+  <h2 class="search-heading">Search Your Nearest Location</h2>
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by city or country...">
+    <button onclick="filterLocations()">Search</button>
+  </div>
+</section>
+
+<!-- Map & Location Cards -->
+<div class="locator-container">
+  <!-- Google Map -->
+  <div id="map"></div>
+
+  <!-- Locations List -->
+  <div class="locations-list" id="locationsList">
+    <div class="location-card" data-lat="51.5074" data-lng="-0.1278" data-name="London, UK">
+      <h4>London, UK</h4>
+      <p><i class="fa fa-map-marker-alt"></i> 221B Baker Street, London</p>
+      <p><i class="fa fa-phone"></i> +44 20 7946 0958</p>
+    </div>
+    <div class="location-card" data-lat="40.7128" data-lng="-74.0060" data-name="New York, USA">
+      <h4>New York, USA</h4>
+      <p><i class="fa fa-map-marker-alt"></i> 123 Madison Ave, New York</p>
+      <p><i class="fa fa-phone"></i> +1 212 555 7890</p>
+    </div>
+    <div class="location-card" data-lat="-33.8688" data-lng="151.2093" data-name="Sydney, Australia">
+      <h4>Sydney, Australia</h4>
+      <p><i class="fa fa-map-marker-alt"></i> 45 George St, Sydney</p>
+      <p><i class="fa fa-phone"></i> +61 2 9876 5432</p>
+    </div>
+    <div class="location-card" data-lat="19.0760" data-lng="72.8777" data-name="Mumbai, India">
+      <h4>Mumbai, India</h4>
+      <p><i class="fa fa-map-marker-alt"></i> Bandra Kurla Complex, Mumbai</p>
+      <p><i class="fa fa-phone"></i> +91 22 4567 8901</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  function filterLocations() {
+  const input = document.getElementById('searchInput').value.toLowerCase().trim();
+  const container = document.querySelector('.locator-container');
+  const locations = document.querySelectorAll('.location-card');
+  let anyMatch = false;
+
+  if (input === "") {
+    // If input is empty, hide whole container
+    container.style.display = 'none';
+    locations.forEach(loc => loc.style.display = 'none');
+    return;
+  }
+
+  locations.forEach(loc => {
+    const name = loc.getAttribute('data-name').toLowerCase();
+    if (name.includes(input)) {
+      loc.style.display = 'block';
+      anyMatch = true;
+    } else {
+      loc.style.display = 'none';
+    }
+  });
+
+  // Show container only if any matches found, else hide
+  container.style.display = anyMatch ? 'flex' : 'none';
+}
+
+</script>
+
+
+
+
+    
   <!-- Google Map -->
   <section data-aos="fade-up" style="background-color: #1c1c1c;">
     <div class="container">

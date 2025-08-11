@@ -375,21 +375,21 @@
 		<main>
 		
 			
-
 <style>
-  .catalogue-container {
-    max-width: 1400px;
-    margin: 40px auto;
-    margin-top: 0px;
-    padding: 20px;
-    background-color: #d7d4d4;
-  
-  }
+/* Container Styling */
+.catalogue-container {
+  max-width: 1400px;
+  margin: 40px auto;
+  margin-top: 0px;
+  padding: 20px;
+  background-color: #d7d4d4;
+}
 
+/* Typing Animation */
 .typing {
   font-family: 'Poppins', sans-serif;
   font-size: 28px;
-  color: #f9fafa;
+  color: #010101;
   width: 20ch;
   white-space: nowrap;
   overflow: hidden;
@@ -406,180 +406,137 @@
   to { width: 20ch }
 }
 
-
-
-
-  .catalogue-grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: 1fr; /* Mobile default: 1 column */
-  }
-
-  @media (min-width: 576px) {
-    .catalogue-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (min-width: 768px) {
-    .catalogue-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .catalogue-grid {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  @media (max-width: 575px) {
-  .catalogue-container {
-    padding: 10px;
-  }
-
-  .catalogue-card {
-    border-radius: 10px;
-    box-shadow: none;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 8px;
-    padding: 10px;
-  }
+/* Grid Layout */
+.catalogue-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
 }
 
-/* 
-  .catalogue-card {
-    background: #8f8d8d;
+@media (min-width: 576px) {
+  .catalogue-grid { grid-template-columns: repeat(2, 1fr); }
+}
 
-    overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  } */
+@media (min-width: 768px) {
+  .catalogue-grid { grid-template-columns: repeat(3, 1fr); }
+}
 
-  .catalogue-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-  }
-.catalogue-card img {
+@media (min-width: 1024px) {
+  .catalogue-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Card Styling */
+.catalogue-card {
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.catalogue-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Image Styling */
+.catalogue-image {
+  position: relative;
+}
+
+.catalogue-image img {
   width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
+  transition: transform 0.3s ease;
 }
 
+.catalogue-card:hover img {
+  transform: scale(1.05);
+}
 
-  .actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 12px;
-    background-color: #f0eeee;
-    border-top: 1px solid #eee;
-  }
+/* Hover Icons Styling */
+.hover-icons {
+  position: absolute;
+  top: 50%;
+  right: -60px; /* hidden initially */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
 
-  .actions a {
-    text-decoration: none;
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 6px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.3s ease;
-  }
+.hover-icons a {
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
 
-  .view-btn {
-    background-color: #171717;
-    color: #fff;
-  }
+.hover-icons a:hover {
+  background: #000;
+}
 
-  .view-btn:hover {
-    background-color: #5a6268;
-  }
-
-  .download-btn {
-    background-color: #343a40;
-    color: #fff;
-  }
-
-  .download-btn:hover {
-    background-color: #23272b;
-  }
+.catalogue-card:hover .hover-icons {
+  right: 15px; /* slide in */
+  opacity: 1;
+}
 </style>
-
-
-<script>
-  // Optional JavaScript to remove the cursor after typing ends
-setTimeout(() => {
-  document.querySelector('.typing').style.borderRight = 'none';
-}, 2600); // slightly longer than 2.5s animation
-
-</script>
-
-
 
 <div class="catalogue-container">
   <h1 class="typing">OUR CATALOGUES</h1>
   <div class="catalogue-grid" id="catalogueGrid">
-    <!-- Cards injected here -->
+
   </div>
 </div>
 
-<div id="catalogueGrid"></div>
-
 <script>
-  const catalogues = [
-    { image: "assets/images/covers/dot.png", viewLink: "catalogues1.1.html", downloadLink: "catalogues1.1.html" },
-    { image: "assets/images/covers/fan.png", viewLink: "catalogues1.2.html", downloadLink: "catalogues1.2.html" },
-    { image: "assets/images/covers/flood.png", viewLink: "catalogues1.3.html", downloadLink: "catalogues1.3.html" },
-        { image: "assets/images/covers/wheel.png", viewLink: "catalogues1.8.html", downloadLink: "catalogues1.8.html" },
-    { image: "assets/images/covers/fountain.png", viewLink: "catalogues1.4.html", downloadLink: "catalogues1.4.html" },
-    { image: "assets/images/covers/15.png", viewLink: "catalogues1.5.html", downloadLink: "catalogues1.5.html" },
-    { image: "assets/images/covers/bar.png", viewLink: "catalogues1.6.html", downloadLink: "catalogues1.6.html" },
-    { image: "assets/images/covers/gobo.png", viewLink: "catalogues1.7.html", downloadLink: "catalogues1.7.html" },
-    { image: "assets/images/covers/ground.png", viewLink: "catalogues1.8.html", downloadLink: "catalogues1.8.html" },
-    { image: "assets/images/covers/neon.png", viewLink: "catalogues1.9.html", downloadLink: "catalogues1.9.html" },
-    { image: "assets/images/covers/pillar.png", viewLink: "catalogues1.10.html", downloadLink: "catalogues1.10.html" },
-    { image: "assets/images/covers/pool.png", viewLink: "catalogues1.10.html", downloadLink: "catalogues1.10.html" },
+// Remove typing cursor after animation
+setTimeout(() => {
+  document.querySelector('.typing').style.borderRight = 'none';
+}, 2600);
 
-    { image: "assets/images/covers/tree.png", viewLink: "catalogues1.8.html", downloadLink: "catalogues1.8.html" },
-    { image: "assets/images/covers/wallwasher.png", viewLink: "catalogues1.9.html", downloadLink: "catalogues1.9.html" },
-    { image: "assets/images/covers/wallwindow.png", viewLink: "catalogues1.10.html", downloadLink: "catalogues1.10.html" },
-   
+// Catalogue Data
+const catalogues = [
+  { image: "assets/images/covers/dot.png", viewLink: "catalogues1.1.html", downloadLink: "catalogues1.1.html" },
+  { image: "assets/images/covers/fan.png", viewLink: "catalogues1.2.html", downloadLink: "catalogues1.2.html" },
+  { image: "assets/images/covers/flood.png", viewLink: "catalogues1.3.html", downloadLink: "catalogues1.3.html" },
+  { image: "assets/images/covers/wheel.png", viewLink: "catalogues1.8.html", downloadLink: "catalogues1.8.html" },
+  { image: "assets/images/covers/fountain.png", viewLink: "catalogues1.4.html", downloadLink: "catalogues1.4.html" },
+  { image: "assets/images/covers/15.png", viewLink: "catalogues1.5.html", downloadLink: "catalogues1.5.html" },
+  { image: "assets/images/covers/bar.png", viewLink: "catalogues1.6.html", downloadLink: "catalogues1.6.html" },
+  { image: "assets/images/covers/gobo.png", viewLink: "catalogues1.7.html", downloadLink: "catalogues1.7.html" },
+  { image: "assets/images/covers/ground.png", viewLink: "catalogues1.8.html", downloadLink: "catalogues1.8.html" },
+  { image: "assets/images/covers/neon.png", viewLink: "catalogues1.9.html", downloadLink: "catalogues1.9.html" },
+  { image: "assets/images/covers/pillar.png", viewLink: "catalogues1.10.html", downloadLink: "catalogues1.10.html" },
+  { image: "assets/images/covers/pool.png", viewLink: "catalogues1.10.html", downloadLink: "catalogues1.10.html" },
+  { image: "assets/images/covers/tree.png", viewLink: "catalogues1.8.html", downloadLink: "catalogues1.8.html" },
+  { image: "assets/images/covers/wallwasher.png", viewLink: "catalogues1.9.html", downloadLink: "catalogues1.9.html" },
+  { image: "assets/images/covers/wallwindow.png", viewLink: "catalogues1.10.html", downloadLink: "catalogues1.10.html" },
+];
 
-
-   
-
-
-
-  ];
-
-  const grid = document.getElementById("catalogueGrid");
-
-  catalogues.forEach(catalogue => {
-    const card = document.createElement("div");
-    card.className = "catalogue-card";
-    card.innerHTML = `
-      <a href="${catalogue.viewLink}" target="_blank" rel="noopener noreferrer">
-        <img src="${catalogue.image}" alt="Catalogue" />
-      </a>
-      <div class="actions">
-        <a class="view-btn" href="${catalogue.viewLink}" target="_blank" rel="noopener noreferrer">
-          <i class="fas fa-eye"></i> View
-        </a>
-        <a class="download-btn" href="${catalogue.downloadLink}" download>
-          <i class="fas fa-download"></i> Download
-        </a>
+// Inject Cards
+const grid = document.getElementById("catalogueGrid");
+catalogues.forEach(catalogue => {
+  const card = document.createElement("div");
+  card.className = "catalogue-card";
+  card.innerHTML = `
+    <div class="catalogue-image">
+      <img src="${catalogue.image}" alt="Catalogue">
+      <div class="hover-icons">
+        <a href="${catalogue.viewLink}" target="_blank"><i class="fas fa-eye"></i></a>
+        <a href="${catalogue.downloadLink}" download><i class="fas fa-download"></i></a>
       </div>
-    `;
-    grid.appendChild(card);
-  });
+    </div>
+  `;
+  grid.appendChild(card);
+});
 </script>
-
 
 
 
