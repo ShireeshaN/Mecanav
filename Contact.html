@@ -575,9 +575,39 @@
 .location-card i { color: #000; margin-right: 6px; }
 
 /* Responsive */
+/* Mobile view adjustments */
 @media (max-width: 768px) {
-  .locator-container { flex-direction: column; }
+  .locator-container {
+    flex-direction: column; /* Stack map and list */
+    align-items: center;
+  }
+
+  #map {
+    width: 100%;
+    height: 300px; /* Reduce height for mobile */
+  }
+
+  .locations-list {
+    width: 100%;
+    max-height: 300px; /* Avoid too tall lists */
+    overflow-y: auto;
+  }
+
+  .search-heading {
+    font-size: 1.5rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+  }
 }
+
       </style>
 <!-- Search Section -->
 <section class="search-section">
@@ -618,35 +648,76 @@
   </div>
 </div>
 
+<!-- Google Maps API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+
 <script>
-  function filterLocations() {
-  const input = document.getElementById('searchInput').value.toLowerCase().trim();
-  const container = document.querySelector('.locator-container');
-  const locations = document.querySelectorAll('.location-card');
+let map;
+let markers = [];
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 2,
+    center: { lat: 20, lng: 0 }, // World view
+  });
+
+  // Create markers for all locations initially (hidden)
+  document.querySelectorAll(".location-card").forEach(loc => {
+    const lat = parseFloat(loc.getAttribute("data-lat"));
+    const lng = parseFloat(loc.getAttribute("data-lng"));
+    const name = loc.getAttribute("data-name");
+
+    const marker = new google.maps.Marker({
+      position: { lat, lng },
+      map: map,
+      title: name,
+      visible: false
+    });
+
+    markers.push({ name: name.toLowerCase(), marker: marker });
+  });
+}
+
+function filterLocations() {
+  const input = document.getElementById("searchInput").value.toLowerCase().trim();
+  const container = document.querySelector(".locator-container");
+  const locations = document.querySelectorAll(".location-card");
   let anyMatch = false;
 
+  // Hide all markers initially
+  markers.forEach(m => m.marker.setVisible(false));
+
   if (input === "") {
-    // If input is empty, hide whole container
-    container.style.display = 'none';
-    locations.forEach(loc => loc.style.display = 'none');
+    container.style.display = "none";
+    locations.forEach(loc => loc.style.display = "none");
     return;
   }
 
   locations.forEach(loc => {
-    const name = loc.getAttribute('data-name').toLowerCase();
+    const name = loc.getAttribute("data-name").toLowerCase();
     if (name.includes(input)) {
-      loc.style.display = 'block';
+      loc.style.display = "block";
       anyMatch = true;
+
+      // Show marker on map
+      const matchedMarker = markers.find(m => m.name === name);
+      if (matchedMarker) {
+        matchedMarker.marker.setVisible(true);
+        map.setCenter(matchedMarker.marker.getPosition());
+        map.setZoom(10);
+      }
     } else {
-      loc.style.display = 'none';
+      loc.style.display = "none";
     }
   });
 
-  // Show container only if any matches found, else hide
-  container.style.display = anyMatch ? 'flex' : 'none';
+  container.style.display = anyMatch ? "flex" : "none";
 }
 
+// Initialize the map after page load
+window.onload = initMap;
 </script>
+
 
 
 
