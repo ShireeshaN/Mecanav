@@ -959,33 +959,44 @@ function resetLetters() {
       color:#fff;
     }
 
-    /* 📱 Responsive: 2 per row on mobile */
-    @media (max-width: 768px) {
-      .bookcats-wrapper {
-        justify-content: space-between;
-        gap: 20px;
-      }
+  /* 📱 Responsive: stack items in 1 column and center on mobile */
+@media (max-width: 768px) {
+  .bookcats-wrapper {
+    flex-direction: column;   /* stack items vertically */
+    align-items: center;      /* center items */
+    gap: 20px;                /* spacing between items */
+  }
 
-      .bookcats-item {
-        width: calc(50% - 10px);
-        height: auto;
-        transform: none;
-      }
+  .bookcats-item {
+    width: 90%;               /* occupy most of screen width */
+    max-width: 300px;         /* optional max width */
+    height: auto;
+    transform: none;          /* remove desktop 3D effect */
+  }
 
-      .bookcats-item:hover {
-        transform: scale(1.03);
-      }
+  .bookcats-item:hover {
+    transform: scale(1.03);   /* slight hover zoom */
+  }
 
-      .bookcats-item img {
-        height: auto;
-      }
-    }
+  .bookcats-item img {
+    width: 100%;
+    height: auto;
+  }
 
-    @media (max-width: 480px) {
-      .bookcats-item {
-        width: calc(50% - 10px);
-      }
-    }
+  .bookcats-btn {
+    width: 80%;
+    margin: 20px auto 0 auto; /* center the button */
+    display: block;
+  }
+}
+
+/* Extra small screens (<480px) */
+@media (max-width: 480px) {
+  .bookcats-item {
+    width: 95%;               /* almost full width */
+  }
+}
+
   </style>
 
 <!--catalogues00-->
@@ -1171,29 +1182,26 @@ function resetLetters() {
 </style>
 
 <!--maptest start-->
-<div class="map-section">
-  <div class="map-text">
+<div class="mappingpoint-section">
+  <div class="mappingpoint-text">
     <h2>Our Support</h2>
     <p>Serving numerous countries with pre-sales and after-sales technical support</p>
   </div>
 
-  <div class="map-container">
-    <img src="assets/images/world-map.webp" alt="World Map" class="map-image">
+  <div class="mappingpoint-container">
+    <img src="assets/images/world-map.webp" alt="World Map" class="mappingpoint-image">
 
-<div class="dot dot1"><div class="inner-dot"></div></div>
-<div class="dot dot2"><div class="inner-dot"></div></div>
-<div class="dot dot3"><div class="inner-dot"></div></div>
-<div class="dot dot4"><div class="inner-dot"></div></div>
-<div class="dot dot5"><div class="inner-dot"></div></div>
-<div class="dot dot6"><div class="inner-dot"></div></div>
-<div class="dot dot7"><div class="inner-dot"></div></div>
-
-
-
-    <!-- Plane -->
-   
+    <!-- Dots with country names -->
+    <div class="mappingpoint-dot mappingpoint-dot1" data-country="Hyderabad, India"><div class="mappingpoint-inner-dot"></div></div>
+    <div class="mappingpoint-dot mappingpoint-dot2" data-country="United Kingdom"><div class="mappingpoint-inner-dot"></div></div>
+    <div class="mappingpoint-dot mappingpoint-dot3" data-country="China"><div class="mappingpoint-inner-dot"></div></div>
+    <div class="mappingpoint-dot mappingpoint-dot4" data-country="Italy"><div class="mappingpoint-inner-dot"></div></div>
+    <div class="mappingpoint-dot mappingpoint-dot5" data-country="Canada"><div class="mappingpoint-inner-dot"></div></div>
+    <div class="mappingpoint-dot mappingpoint-dot6" data-country="Dubai, UAE"><div class="mappingpoint-inner-dot"></div></div>
+    <div class="mappingpoint-dot mappingpoint-dot7" data-country="Germany"><div class="mappingpoint-inner-dot"></div></div>
   </div>
 </div>
+
 <!--maptest start-->
  
 <!-- CSS -->
