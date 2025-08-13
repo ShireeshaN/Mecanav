@@ -4958,7 +4958,7 @@ footer.footer-section .brand-logo>a {
 }
 
 .hero-content h1 {
-    font-size: 1.8rem !important;
+    font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 15px;
     line-height: 1.2;
