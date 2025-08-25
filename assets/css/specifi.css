@@ -1,5 +1,6 @@
 
-/* .glass-table-wrapper {
+/* 
+.glass-table-wrapper {
   position: relative;
   border-radius: 16px;
   padding: 10px;
@@ -255,24 +256,80 @@
   border-collapse: separate;
   border-spacing: 0;
   color: #ffffff;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Hind', sans-serif;
   border-radius: 16px;
   overflow: hidden;
 }
 
-/* ✅ Rounded Corners on Table */
-.specifications-table thead tr:first-child th:first-child {
-  border-top-left-radius: 16px;
+/* ===== Specifications Table ===== */
+.specifications-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  color: #ffffff;
+  font-family: 'Hind',  sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
 }
-.specifications-table thead tr:first-child th:last-child {
-  border-top-right-radius: 16px;
+
+/* ===== Header ===== */
+.specifications-table thead th {
+  background: #272525;           /* metallic dark grey */
+  color: #f5f5f5;                /* bright white */
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 14px;
+  padding: 14px 20px;
+  border-bottom: 2px solid #444; /* metallic divider */
 }
-.specifications-table tbody tr:last-child td:first-child {
-  border-bottom-left-radius: 16px;
+
+/* ===== Feature Cells (Labels) ===== */
+.specifications-table td:nth-child(1),
+.specifications-table td:nth-child(3) {
+  background-color: #1e1e1e;     /* deep grey */
+  color: #9e9e9e;                /* metallic silver */
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 18px;
 }
-.specifications-table tbody tr:last-child td:last-child {
-  border-bottom-right-radius: 16px;
+
+/* ===== Value Cells (Data) ===== */
+.specifications-table td:nth-child(2),
+.specifications-table td:nth-child(4) {
+  background-color: #0b0b0b;     /* pure black for contrast */
+  color: #ffffff;                /* white text */
+  font-weight: 500;
+  font-size: 14px;
+  padding: 12px 18px;
 }
+
+/* ===== Zebra Rows for readability ===== */
+.specifications-table tbody tr:nth-child(even) td:nth-child(2),
+.specifications-table tbody tr:nth-child(even) td:nth-child(4) {
+  background-color: #151515;     /* slightly lighter black */
+}
+
+.specifications-table tbody tr:nth-child(even) td:nth-child(1),
+.specifications-table tbody tr:nth-child(even) td:nth-child(3) {
+  background-color: #252525;
+}
+
+/* ===== Hover Effect ===== */
+.specifications-table tbody tr:hover td {
+  background-color: #333 !important;
+  color: #fff !important;
+  transition: 0.3s ease;
+}
+
+
+
+
+
+
+
 
 /* ✅ Header */
 .specifications-table thead {
@@ -295,10 +352,7 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* ✅ Hover Effect */
-.specifications-table tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-}
+
 .specifications-table-section h3{
   padding-top: 30px;
   padding-bottom: 30px;
@@ -394,40 +448,7 @@ html {
 }
 
 
-/* ✅ Buttons enhanced */
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
-  border: none;
-  color: #fff;
-  font-size: 28px;
-  padding: 8px 16px;
-  cursor: pointer;
-  border-radius: 50%;
-  z-index: 2;
-  transition: 0.3s;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
 
-.carousel-btn:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1) translateY(-50%);
-}
-
-.carousel-btn.prev {
-  left: 15px;
-}
-
-.carousel-btn.next {
-  right: 15px;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0,0,0,0.7);
-}
 
 .hero-text {
 
@@ -465,12 +486,14 @@ html {
 
 @media (max-width: 768px) {
  .hero-carousel {
-    height: 200px;
+    height: 220px;
     border-radius: 14px;
   }
 
   .carousel-track img {
     border-radius: 14px;
+    height: 220px;
+    object-fit: cover;
   }
 
   .hero-text h1 {
@@ -618,31 +641,7 @@ html {
   user-select: none;
 }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.4);
-  border: none;
-  color: white;
-  font-size: 24px;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 50%;
-  user-select: none;
-}
 
-.carousel-btn.prev {
-  left: 10px;
-}
-
-.carousel-btn.next {
-  right: 10px;
-}
-
-.carousel-btn:hover {
-  background-color: rgba(0,0,0,0.7);
-}
 
 /* Mobile View Enhancements (max-width: 768px) */
 @media (max-width: 768px) {
@@ -766,6 +765,7 @@ html {
 .text h2 .line1 {
   font-size: 58px;
   display: block;
+  margin-left: 15px;
 }
 
 /* Product Styling */
@@ -891,6 +891,51 @@ html {
     width: 200px;
   }
 }
+
+
+/* Nav container image mida center */
+.owl-nav {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Buttons */
+.owl-nav button.owl-prev,
+.owl-nav button.owl-next {
+  /* background: rgba(0,0,0,0.5); */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  pointer-events: all;
+  padding: 12px 18px;
+  transition: background 0.3s ease;
+}
+
+/* Arrows inside span */
+.owl-nav button span {
+  font-size: 30px;   /* arrow size */
+  line-height: 1;
+  color: #fff;       /* arrow color */
+}
+
+/* Hover effect */
+.owl-nav button.owl-prev:hover,
+.owl-nav button.owl-next:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* Spacing */
+.owl-nav button.owl-prev { margin-left: 15px; }
+.owl-nav button.owl-next { margin-right: 15px; }
+
+
 
 
 
