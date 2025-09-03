@@ -240,31 +240,11 @@
         <div class="overlay"></div>
     </div>
 
-        <style>
-.spotlight {
-  position: absolute;
-  top: 0;                        /* start at top of header */
-  transform: translateX(-50%);
-  width: 120px;
-  height: 120px;
-
-  /* visible glowing circle */
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.4) 40%,
-    rgba(255, 255, 255, 0) 80%
-  );
-
-  filter: blur(12px);
-  transition: left 0.4s ease;
-  pointer-events: none;
-  z-index: 5; /* above nav text */
-}
 
 
 
-    </style>
+
+
 
 
     <style>
@@ -311,7 +291,7 @@
   display: block;
   padding: 8px 0;
   color: #fff;
-  text-decoration: none;
+  /* text-decoration: none; */
   font-size: 14px;
   transition: 0.3s;
 }
@@ -1143,46 +1123,35 @@ From sleek Pixel LED Strips that trace every curve of a design to bold Neon Flex
 </script>
 
 <script>
-
-document.addEventListener("DOMContentLoaded", function() {
-  const menuItems = document.querySelectorAll(".main-menu ul li a");
-  const header = document.querySelector(".header-section");
-
-  // Create spotlight
   const spotlight = document.createElement("div");
   spotlight.classList.add("spotlight");
-  header.appendChild(spotlight);
+  document.querySelector("#header-section").appendChild(spotlight);
 
-  function moveSpotlight(el) {
-    const itemRect = el.getBoundingClientRect();
-    const headerRect = header.getBoundingClientRect();
+  const navLinks = document.querySelectorAll(".main-menu ul li a");
 
-    // Center X relative to header
-    const centerX = itemRect.left + itemRect.width / 2 - headerRect.left;
-    spotlight.style.left = centerX + "px";
-  }
+  navLinks.forEach(link => {
+    link.addEventListener("mouseenter", e => {
+      const rect = e.target.getBoundingClientRect();
+      const parentRect = document.querySelector("#header-section").getBoundingClientRect();
 
-  // Default position
-  const defaultItem = document.querySelector(".main-menu ul li a.active") || menuItems[0];
-  moveSpotlight(defaultItem);
+      // spotlight horizontal move
+      spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+      spotlight.style.top = "0px";
+      spotlight.style.opacity = "1";
 
-  // Hover + click
-  menuItems.forEach(item => {
-    item.addEventListener("mouseenter", () => moveSpotlight(item));
-    item.addEventListener("click", () => moveSpotlight(item));
-  });
-
-  // Fix on scroll/resize
-  ["resize", "scroll"].forEach(evt => {
-    window.addEventListener(evt, () => {
-      const activeItem = document.querySelector(".main-menu ul li a.active");
-      if (activeItem) moveSpotlight(activeItem);
+      // text color change
+      navLinks.forEach(l => l.classList.remove("active-link"));
+      e.target.classList.add("active-link");
     });
   });
-});
 
-
+  document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+    spotlight.style.opacity = "0";
+    navLinks.forEach(l => l.classList.remove("active-link"));
+  });
 </script>
+
+
 
 
 

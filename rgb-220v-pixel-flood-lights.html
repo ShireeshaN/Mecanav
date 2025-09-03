@@ -847,5 +847,36 @@ $(".hero-slider").owlCarousel({
 
 
 
-	</body>
+	<script>
+  const spotlight = document.createElement("div");
+  spotlight.classList.add("spotlight");
+  document.querySelector("#header-section").appendChild(spotlight);
+
+  const navLinks = document.querySelectorAll(".main-menu ul li a");
+
+  navLinks.forEach(link => {
+    link.addEventListener("mouseenter", e => {
+      const rect = e.target.getBoundingClientRect();
+      const parentRect = document.querySelector("#header-section").getBoundingClientRect();
+
+      // spotlight horizontal move
+      spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+      spotlight.style.top = "0px";
+      spotlight.style.opacity = "1";
+
+      // text color change
+      navLinks.forEach(l => l.classList.remove("active-link"));
+      e.target.classList.add("active-link");
+    });
+  });
+
+  document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+    spotlight.style.opacity = "0";
+    navLinks.forEach(l => l.classList.remove("active-link"));
+  });
+</script>
+
+
+
+</body>
 </html>

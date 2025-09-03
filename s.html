@@ -6,8 +6,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title> RGB – Pixel – 24/48V DC Pool Light</title>
-		<link rel="shortcut icon" href="assets/images/logo/fevis.webp">
+
+		<title>About Us</title>
+	 <link rel="shortcut icon" sizes="32x32" href="assets/images/logo/fevis.webp">
+
 		<!-- css include -->
 		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/fontawesome-all.css">
@@ -18,11 +20,15 @@
 		<link rel="stylesheet" type="text/css" href="assets/css/magnific-popup.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/aos.css">
-		<!-- <link rel="stylesheet" type="text/css" href="assets/css/boc_reset.css"> -->
+		<!-- Owl Carousel CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 		<!-- custom - css include -->
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    	<link rel="stylesheet" type="text/css" href="assets/css/specifi.css">
-		<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+		<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+<!-- AOS Animation CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
 	</head>
 
 
@@ -39,9 +45,7 @@
 		<!-- backtotop - end -->
 
 		<!-- preloader - start -->
-		<div id="preloader">
-
-    </div>
+		<div id="preloader"></div>
 		<!-- preloader - end -->
 
 
@@ -54,7 +58,7 @@
                 <div class="col-lg-2">
                     <div class="brand-logo">
                         <a href="index.html">
-								<img src="assets/images/logo/mecanavulogo.webp" alt="logo_not_found">
+								<img src="assets/images/logo/mecanavulogo.webp" alt="mecanavlogo" loading="lazy">
 							</a>
                         <div class="mobile-menu-btns float-right ul-li-right">
                             <ul class="clearfix">
@@ -74,15 +78,15 @@
                     <nav class="main-menu ul-li-right clearfix">
                         <ul class="clearfix">
                             <li class="menu-item">
-                                <a href="index.html" >HOME</a>
+                                <a href="index.html" data-color="rgba(255,255,255,0.9)">HOME</a>
                             </li>
 
                             <li class="menu-item">
-                                <a href="About.html">ABOUT US</a>
+                                <a href="About.html" class="active" data-color="rgba(255,255,255,0.9)">ABOUT US</a>
                             </li>
 
                             <li class="menu-item mega-menu">
-  <a href="product.html" class="active">PRODUCTS <span class="dropdown-icon "></span></a>
+  <a href="product.html" data-color="rgba(255,255,255,0.9)">PRODUCTS <span class="dropdown-icon "></span></a>
   <div class="mega-menu-wrapper">
     <div class="mega-menu-grid">
       
@@ -121,12 +125,12 @@
 
 
                             <li class="menu-item">
-                                <a href="Applications.html" >APPLICATIONS</a>
+                                <a href="Applications.html" data-color="rgba(255,255,255,0.9)">APPLICATIONS</a>
 
                             </li>
 
                             <li class="menu-item-has-child">
-                                <a href="#" >SERVICES</a>
+                                <a href="#" data-color="rgba(255,255,255,0.9)">SERVICES</a>
                                 <ul class="submenu">
                                     <li><a href="Catalogues.html" >Catalogues</a></li>
                                     <li><a href="Downloads.html">Downloads</a></li>
@@ -136,9 +140,11 @@
                             </li>
                            
                             <li class="menu-item">
-                                <a  href="contact.html">CONTACT US</a>
+                                <a  href="contact.html" data-color="rgba(255,255,255,0.9)">CONTACT US</a>
+                                
 
                             </li>
+                          
                         </ul>
                     </nav>
                 </div>
@@ -165,13 +171,13 @@
                     </li>
 
                     <li>
-                        <a href="About.html">ABOUT US</a>
+                        <a href="About.html" class="active">ABOUT US</a>
 
                     </li>
 
                     <li class="menu-item-has-child">
                     
-       <a href="product.html" data-toggle="collapse" aria-expanded="false" class="active">
+                         <a href="product.html" data-toggle="collapse" aria-expanded="false" >
     PRODUCTS <span class="dropdown-icon"></span>
   </a>
                         <ul class="submenu collapse" id="pages-submenu" data-parent="#menu-list">
@@ -221,6 +227,10 @@
                     <li>
                         <a  href="contact.html">CONTACT US</a>
                     </li>
+                     <li>
+                        <a  href="locate_us.html">LOCATE US</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -229,6 +239,52 @@
 
         <div class="overlay"></div>
     </div>
+
+      <style>
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: all 0.4s ease;
+  z-index: 10;
+}
+
+/* Spotlight beam */
+.spotlight::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 6px;
+  background: #fff;
+  border-radius: 3px; /* top strip */
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+/* Light cone */
+.spotlight::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 200px;
+  background: radial-gradient(ellipse at top, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 80%);
+  clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+  filter: blur(2px);
+}
+
+
+
+
+    </style>
 
 
     <style>
@@ -366,252 +422,485 @@
 
 
 
-<!-- main body - start
-	================================================== -->
-		
-<section>
-
-<main class="container">
-<section class="hero-banner" data-aos="fade-up">
+		<!-- main body - start
+		================================================== -->
+		<main>
 
 
-  <div class="hero-slider  owl-carousel" data-aos="fade-up">
-    <!-- <div class="carousel-track"> -->
-      <img class="item" src="assets/images/Final-Products/pool-lights/RGB-24V_48V-P-1.1.webp" alt="Product Image 1" />
-      <img class="item" src="assets/images/Final-Products/pool-lights/RGB-24V_48V-P-1.2.webp" alt="Product Image 2" />
-      <img class="item" src="assets/images/Final-Products/pool-lights/RGB-24V_48V-P-1.3.webp" alt="Product Image 3" />
-    <!-- </div>
-    <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button> -->
-  </div>
-    <div class="hero-text">
-    <h2 class="heads"> RGB – Pixel – 24/48V DC Pool Light</h2>
-    <p class="paras">Full-color pixel effects bring life to your pool with flowing and animated lighting.</p>
-    <a href="#tabs" class="btn">Explore Features</a>
-  </div>
-</section>
+			<!-- breadcrumb-section - start
+			================================================== -->
+			<section id="breadcrumb-section" class="about1-section text-center bg-light text-dark sec-ptb-100 clearfix">
+				<div class="container">
+					<h2 class="page-title mb-30 text-white">Who We Are</h2>
+					<div class="breadcrumb-nev ul-li-center clearfix" data-aos="fade-up" data-aos-delay="300">
+						<ul class="text-white clearfix">
+							<li><a href="index.html"><i class="fas fa-home mr-1"></i>Home</a>&nbsp;&nbsp;&nbsp;&nbsp;</li>
+							<li><i class="fas fa-chevron-circle-right mr-1"></i> About Us</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<!-- breadcrumb-section - end
+			================================================== -->
 
-<section class="description" data-aos="fade-right">
-  <h2>Overview</h2>
-  <p> Perfect for themed pools, party zones, and programmable effects.</p>
-</section>
+      <style>
 
-<section id="tabs" class="tabs" data-aos="fade-up">
-  <div class="tab-buttons">
+ .about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.about-image, .about-text {
+  flex: 1 1 45%;
+  min-width: 300px;
+}
+
+/* Optional: Tweak for very small devices */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+  }
+
+  .about-image, .about-text {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  model-viewer {
+    height: 300px !important;
+  }
+}
+
+      </style>
+
+
+		<section class="#">
+  <div class="about-container">
+    <div class="about-image" data-aos="fade-right">
+     
+<model-viewer 
+  src="assets/media/wall washer and stand 2.glb"
+  alt="3D Spotlight"
+  auto-rotate
+  camera-controls
+  camera-orbit="18deg 100deg 2.5m"  
+  background-color="#ffffff"
+  style="width: 100%; height: 500px; max-width: 100%;">
+</model-viewer>
+
+
+
+
+  
+    </div>
+    <div class="about-text" data-aos="fade-left">
+      <h2 class="text-white">Illuminate the Extraordinary</h2>
+      <p class="text-white">
+       At Mecanav, we don’t just light up structures—we create unforgettable experiences.
+From sleek Pixel LED Strips that trace every curve of a design to bold Neon Flex LEDs that splash vibrant personality across any surface, our lighting turns spaces into living, breathing art.
+      </p>
+      <p class="text-white">
+        Every glow, every pulse, every shift in color is crafted to inspire awe and spark emotion. Whether it’s elevating a skyscraper, reimagining a storefront, or making a landmark unforgettable—we deliver lighting that leaves a lasting impression.
+      </p>
     
-    <button class="tab-button active" data-tab="tab1">Product Info</button>
-    <button class="tab-button" data-tab="tab3">Gallery</button>
-    <button class="tab-button" data-tab="tab4">Downloads</button>
-  </div>
-  <div id="tab1" class="tab-content active">
-    <h3>Product Information</h3>
-    <p>This RGB pixel pool light enables vibrant animations and chases through addressable control. Each pixel section can be controlled individually via DMX or SPI for eye-catching underwater scenes.
-
-</p>
-  </div>
-
-  <div id="tab3" class="tab-content">
-    <h3>Gallery</h3>
-    <div class="gallery">
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 1">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool1.webp" alt="Gallery 1">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool2.webp" alt="Gallery 2">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool3.webp" alt="Gallery 2">
-      </a>
-            <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 1">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool4.webp" alt="Gallery 1">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool5.webp" alt="Gallery 2">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool6.webp" alt="Gallery 2">
-      </a>
-            <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 1">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool7.webp" alt="Gallery 1">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool8.webp" alt="Gallery 2">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool9.webp" alt="Gallery 2">
-      </a>
-            <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 1">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool10.webp" alt="Gallery 1">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool11.webp" alt="Gallery 2">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool12.webp" alt="Gallery 2">
-      </a>
-            <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 1">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool3.webp" alt="Gallery 1">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool4.webp" alt="Gallery 2">
-      </a>
-      <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool5.webp" alt="Gallery 2">
-      </a>
-            <a href="#" data-lightbox="enso-gallery" data-title="Enso Lighting 2">
-        <img src="assets/images/Final-Products/Product spec imgs/pool lights/pool6.webp" alt="Gallery 2">
-      </a>
     </div>
-  </div>
-  <div id="tab4" class="tab-content">
-    <h3>Downloads</h3>
-    <ul>
-      <li><a href="datasheet.pdf" target="_blank">Datasheet PDF</a></li>
-      <li><a href="installation-guide.pdf" target="_blank">Installation Guide</a></li>
-    </ul>
   </div>
 </section>
 
-<!-- Specifications Table Section -->
-<section class="specifications-table-section" data-aos="fade-up" style="margin-top: 40px;">
-  <h3>Specifications Table</h3>
-  <div class="glass-table-wrapper-pool">
-    <div class="table-scroll-container">
-  <table class="specifications-table">
-    <thead>
-      <tr>
-        <th>Feature</th>
-        <th>Value</th>
-        <th>Feature</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Model</td>
-        <td>MECR1612P-24/48V</td>
-        <td>Wattage</td>
-        <td>12W / 18W / 24W / 36W</td>
-      </tr>
-      <tr>
-        <td>Voltage</td>
-        <td>24/48V DC</td>
-        <td>CCT</td>
-        <td>2700K – 3200K / RGB</td>
-      </tr>
-       <tr>
-        <td>CRI</td>
-        <td>≥90</td>
-        <td>Beam Angle</td>
-        <td>15°, 30°, 45°, 60°</td>
-      </tr>
-      <tr>
-        <td>Mode</td>
-        <td>Static / Dimmable (via driver) / DMX (optional)</td>
-        <td>System Port</td>
-        <td>5050</td>
-      </tr>
-      <tr>
-        <td>Housing Material</td>
-        <td>ABS + UV-polycarbonate / Stainless Steel</td>
-        <td>Protection Rating</td>
-        <td>IP68</td>
-      </tr>
-      <tr>
-        <td>Operating Temperature</td>
-        <td>50°-60°C</td>
-        <td>Protocol</td>
-        <td>DMX512,SPI,ArtNET,DALI</td>
-      </tr>
-       <tr>
-        <td>Lifespan</td>
-        <td>50,000Hours</td>
-        <td>Size</td>
-        <td>100/150/200/250 MM (Customized)</td>
-      </tr>
-         <tr>
-        <td>Control Type</td>
-        <td>On/Off, 0–10V/PWM dimming, RF/IR remote, Wi-Fi app, DMX512/RDM</td>
+
+
+
+			<section id="experience" class="lighting-experience">
+  <div class="container">
+    <h2 class="section-title " data-aos="fade-down">Our Lighting Journey</h2>
+    <div class="timeline pt-4">
+
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-icon">2024</div>
+        <div class="timeline-content">
+          <h3>Our Lighting Timeline</h3>
+          <p>Each project marks a step forward — from our first glow to becoming a trusted name in architectural lighting.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-icon">2023</div>
+        <div class="timeline-content">
+          <h3> From Concept to Glow</h3>
+          <p>We turn bold ideas into brilliant facades — combining creativity and cutting-edge lighting tech.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-icon">2022</div>
+        <div class="timeline-content">
+          <h3>The MECANAV Company Story in Lights</h3>
+          <p>Born to make architecture shine — we craft stories through light, color, and motion.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-icon">2021</div>
+        <div class="timeline-content">
+          <h3>Milestones of Illumination</h3>
+          <p>From homes to smart buildings, every milestone reflects our passion to light up spaces and dreams.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="core-values-glow-section">
+  <div class="container">
+    <h2 class="section-title">Our Core Values</h2>
+    <p class="section-subtitle">Guided by light, powered by principles.</p>
+
+    <div class="values-grid">
+      <div class="value-card" data-aos="fade-up">
+        <div class="icon-glow">
+          <img src="assets/images/icons/about-innovation.webp" alt="Innovation" loading="lazy">
+        </div>
+        <div class="value-content">
+          <h3>Innovation</h3>
+          <p>Adapting to change with futuristic ideas and creative lighting design.</p>
+        </div>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="icon-glow">
+          <img src="assets/images/icons/about-integrity.webp" alt="Integrity" loading="lazy">
+        </div>
+        <div class="value-content">
+          <h3>Integrity</h3>
+          <p>We shine with honesty — always ethical, always transparent.</p>
+        </div>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="icon-glow">
+          <img src="assets/images/icons/about-passion.webp" alt="Passion" loading="lazy">
+        </div>
+        <div class="value-content">
+          <h3>Passion</h3>
+          <p>Every project is powered by the fire to create dazzling experiences.</p>
+        </div>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-glow">
+          <img src="assets/images/icons/about-focus.webp" alt="Customer Focus" loading="lazy">
+        </div>
+        <div class="value-content">
+          <h3>Customer Focus</h3>
+          <p>We design with your vision in mind — always personalized, always glowing.</p>
+        </div>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="icon-glow">
+          <img src="assets/images/icons/about-team.webp" alt="Team Work" loading="lazy">
+        </div>
+        <div class="value-content">
+          <h3>Team Work</h3>
+          <p>Collaborative brilliance — like lights in sync, we work as one.</p>
+        </div>
+      </div>
+
+      <div class="value-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="icon-glow">
+          <img src="assets/images/icons/about-safety.webp" alt="Safety" loading="lazy">
+        </div>
+        <div class="value-content">
+          <h3>Safety</h3>
+          <p>We light up buildings — not risks. Safety is always a priority.</p>
+        </div>
+      </div>
+
+        <div class="value-card" data-aos="fade-up" data-aos-delay="600">
+  <div class="icon-glow">
+    <img src="assets/images/icons/sustainability.webp" alt="Sustainability" loading="lazy">
+  </div>
+  <div class="value-content">
+    <h3>Sustainability</h3>
+    <p>Lighting up the world responsibly — we care for the planet as we illuminate it.</p>
+  </div>
+</div>
+
+<div class="value-card" data-aos="fade-up" data-aos-delay="700">
+  <div class="icon-glow">
+    <img src="assets/images/icons/excellence.webp" alt="Excellence" loading="lazy">
+  </div>
+  <div class="value-content">
+    <h3>Excellence</h3>
+    <p>Precision, perfection, and performance — we don’t just deliver, we excel.</p>
+  </div>
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+  <style>
+   
+
+    .partners-section {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+
+    .partners-section h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .partners-section p.subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 40px;
+    }
+
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 30px;
+      justify-items: center;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo-grid img {
+      height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s ease;
+    }
+
+    .logo-grid img:hover {
+      filter: grayscale(0%);
+    }
+
+    .partners-section p.bottom-text {
+      margin-top: 50px;
+      font-size: 0.95rem;
+      color: #888;
+    }
+
+    @media (max-width: 600px) {
+      .partners-section h2 {
+        font-size: 2rem;
+      }
+
+      .logo-grid {
+        gap: 20px;
+      }
+    }
+	.partners-panel{
+		background-color:#f7f9f9 ;
+	}
+  </style>
+
+
+  
+
+
+
+
+			
+			<!-- partners logos - end
+			================================================== -->
+
+				<!-- partners-section - start
+			================================================== -->
+	  <!-- partners-section - start -->
+  <!-- partners-section - start -->
+<section id="partners-section" class="partners-section sec-ptb-60 bg-light-gray">
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div id="partners-carousel" class="owl-carousel owl-theme">
       
-      </tr>
-    </tbody>
-  </table>
-  </div>
+      <!-- Only once -->
+      <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/flood_off0.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/flood_off0.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/flood_on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/fountain off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/fountain off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/fountain on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/ground_light_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/ground_light_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/ground light on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/neon_flex_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/neon_flex_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/neon_flex_on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/pixel dot_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/pixel dot_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/pixel_dot_on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/pool_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/pool_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/pool_light.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/strip_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/strip_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/strip_on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/wall window off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/wall window off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/wall window on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+       <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/treehighlighters_on.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/treehighlighters_on.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/treehighlighters_off.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+        <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/gobo_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/gobo_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/gobo_on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+        <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/fan-off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/fan-off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/fan-on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+         <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/piller-highlighter-off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/piller-highlighter-off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/piller-highlighter-on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+         <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/pixel eld bar off.webp.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/pixel eld bar off.webp.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/pixel led bar on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+        <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/pixel panel off.webp.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/pixel panel off.webp.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/pixel panel on.webp.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+        <div class="item">
+        <a class="partner-logo" href="#!">
+          <img class="toggle-image"
+               src="assets/images/Final-Products/Product spec imgs/wallwasher_off.webp"
+               data-off="assets/images/Final-Products/Product spec imgs/wallwasher_off.webp"
+               data-on="assets/images/Final-Products/Product spec imgs/wallwasher_on.webp"
+               alt="Product 1" loading="lazy">
+        </a>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section class="product-showcase">
-  <div class="content">
-    <div class="text">
-      <h2>
-        <span class="line1">Pool Light</span>
-      </h2>
-    </div>
-    <div class="product">
-      <img src="assets/images/Final-Products/Product spec imgs/pool_off.webp" alt="LED Product" class="product-image">
-      <div class="glow"></div>
-    </div>
-  </div>
-</section>
+<style>
+  @media only screen and (max-width: 576px) {
+  .partner-logo {
+    display: flex;
+    justify-content: center;
+  }
+  .partner-logo img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+</style>
+
+<!-- partners-section - end -->  
 
 
-
-<!-- <section class="product-code-section" data-aos="fade-up">
-  <h3>Product Codes</h3>
-  <table class="product-code-table">
-    <thead>
-      <tr>
-        <th>Product</th>
-        <th>SKU</th>
-        <th>Wattage</th>
-        <th>Beam Angle</th>
-        <th>Finish</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Enso Quart Wide Beam - 30W</td>
-        <td>ENSO-WB-30W-BL</td>
-        <td>30W</td>
-        <td>Wide Beam</td>
-        <td>Black</td>
-      </tr>
-      <tr>
-        <td>Enso Quart Wide Beam - 50W</td>
-        <td>ENSO-WB-50W-WH</td>
-        <td>50W</td>
-        <td>Wide Beam</td>
-        <td>White</td>
-      </tr>
-      <tr>
-        <td>Enso Quart Wide Beam - 30W Custom</td>
-        <td>ENSO-WB-30W-CU</td>
-        <td>30W</td>
-        <td>Wide Beam</td>
-        <td>Custom Finish</td>
-      </tr>
-    </tbody>
-  </table>
-</section> -->
-
-<script>
- 
-</script>
-
-
-
-</main>
+		</main>
 		<!-- main body - end
 		================================================== -->
-</section>
-<!-- main body - end
-		================================================== -->
-
 
 
    <!-- footer-section - start
 		================================================== -->
-    <footer id="footer-section" class="footer-section sec-ptb-10 clearfix" style="background-color: rgb(30, 32, 35);>
+    <footer id="footer-section" class="footer-section sec-ptb-10 clearfix " style="background-color: rgb(30, 32, 35);>
         <div class="container">
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
@@ -775,26 +1064,39 @@
     <!-- footer-section - end
 		================================================== -->
 
-<!-- jQuery (must come before Owl Carousel JS) -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Owl Carousel JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<!-- Bootstrap Bundle JS (includes Popper.js, required for accordion, dropdowns, etc.) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  // Toggle OFF/ON every 2 seconds
+  function toggleImages() {
+    const images = document.querySelectorAll('.toggle-image');
+    images.forEach(img => {
+      const currentSrc = img.getAttribute('src');
+      const offSrc = img.getAttribute('data-off');
+      const onSrc = img.getAttribute('data-on');
+      img.setAttribute('src', currentSrc === offSrc ? onSrc : offSrc);
+    });
+  }
+  setInterval(toggleImages, 2000);
 
-<script>
-$(".hero-slider").owlCarousel({
-  items: 1,
-  loop: true,
-  nav: true,
-  dots: true,
-  autoplay: true,
-  autoplayTimeout: 4000,
-  autoplayHoverPause: true,
-  autoHeight: false,   // 👈 fix: don’t shrink slides
-  smartSpeed: 600
-});
+  // Initialize Owl Carousel with looping
+  $(document).ready(function () {
+    $('#partners-carousel').owlCarousel({
+      loop: true,              // 🔁 This makes it repeat seamlessly
+      margin: 30,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      smartSpeed: 800,
+      items: 1,                // Only 1 product shown at a time
+      responsive: {
+        0: { items: 1 },
+        576: { items: 2 },
+        768: { items: 3 },
+        992: { items: 4 }
+      }
+    });
+  });
 </script>
+
+
 
 		<!-- jquery include -->
 		<script src="assets/js/jquery-1.10.1.min.js"></script>
@@ -811,17 +1113,31 @@ $(".hero-slider").owlCarousel({
 		<script src="assets/js/jquery-ui.js"></script>
 		<script src="assets/js/aos.js"></script>
 		<script src="assets/js/validate.js"></script>
-		<script src="assets/js/application.js"></script>
-    		<script src="assets/js/specifi.js"></script>
 
 		<!-- google map - jquery include -->
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk2HrmqE4sWSei0XdKGbOMOHN3Mm2Bf-M&ver=2.1.6"></script>
         <script src="assets/js/gmaps.min.js"></script>
+
 		<!-- mobile menu - jquery include -->
         <script src="assets/js/mCustomScrollbar.js"></script>
+
 		<!-- custom - jquery include -->
 		<script src="assets/js/custom.js"></script>
-        <script>
+
+		<!-- AOS Animation JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+</script>
+
+<!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+ <script>
   document.addEventListener("DOMContentLoaded", function () {
     const sidebarLinks = document.querySelectorAll(".sidebar-menu-wrapper .menu-item-has-child > a");
 
@@ -846,39 +1162,95 @@ $(".hero-slider").owlCarousel({
   });
 </script>
 
-
-
-
-	<script>
+<script>
   const spotlight = document.createElement("div");
-  spotlight.classList.add("spotlight");
-  document.querySelector("#header-section").appendChild(spotlight);
+spotlight.classList.add("spotlight");
+document.querySelector("#header-section").appendChild(spotlight);
 
-  const navLinks = document.querySelectorAll(".main-menu ul li a");
+const navLinks = document.querySelectorAll(".main-menu ul li a");
 
-  navLinks.forEach(link => {
-    link.addEventListener("mouseenter", e => {
-      const rect = e.target.getBoundingClientRect();
-      const parentRect = document.querySelector("#header-section").getBoundingClientRect();
+navLinks.forEach(link => {
+  link.addEventListener("mouseenter", e => {
+    const rect = e.target.getBoundingClientRect();
+    const parentRect = document.querySelector("#header-section").getBoundingClientRect();
 
-      // spotlight horizontal move
-      spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
-      spotlight.style.top = "0px";
-      spotlight.style.opacity = "1";
-
-      // text color change
-      navLinks.forEach(l => l.classList.remove("active-link"));
-      e.target.classList.add("active-link");
-    });
+    spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+    spotlight.style.top = rect.top - parentRect.top + "px";
+    spotlight.style.opacity = "1";
   });
+});
 
-  document.querySelector(".main-menu").addEventListener("mouseleave", () => {
-    spotlight.style.opacity = "0";
-    navLinks.forEach(l => l.classList.remove("active-link"));
-  });
+document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+  spotlight.style.opacity = "0";
+});
+
 </script>
 
 
 
-</body>
+
+
+
+
+
+
+
+
+	</body>
 </html>
+
+
+<style>
+.spotlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 120px; /* beam length – nav items daggara varaku */
+  pointer-events: none;
+  opacity: 0;
+  transition: left 0.4s ease, opacity 0.3s ease;
+  z-index: 1; /* spotlight nav items kinda undali */
+}
+
+/* Top light strip */
+.spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 6px;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.9);
+}
+
+/* Beam cone */
+.spotlight::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px; /* only till nav items */
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 80%
+  );
+  clip-path: polygon(45% 0, 55% 0, 100% 100%, 0 100%);
+  filter: blur(2px);
+  z-index: 1; /* below nav text */
+}
+
+/* Nav links should always be above spotlight */
+.main-menu ul li a {
+  position: relative;
+  z-index: 5; /* text always on top */
+}
+
+
+</style>
