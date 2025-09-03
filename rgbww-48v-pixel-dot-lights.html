@@ -861,6 +861,44 @@ $(".hero-slider").owlCarousel({
     });
   });
 </script>
+	<script>
+const spotlight = document.createElement("div");
+spotlight.classList.add("spotlight");
+document.querySelector("#header-section").appendChild(spotlight);
+
+const navLinks = document.querySelectorAll(".main-menu ul li a");
+
+// Function spotlight move cheyyadaniki
+function moveSpotlightTo(element) {
+  const rect = element.getBoundingClientRect();
+  const parentRect = document.querySelector("#header-section").getBoundingClientRect();
+
+  spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+  spotlight.style.opacity = "1";
+}
+
+// --- Page load appudu active nav item meeda pettadam
+const activeLink = document.querySelector(".main-menu ul li a.active");
+if (activeLink) {
+  moveSpotlightTo(activeLink);
+}
+
+// --- Hover logic
+navLinks.forEach(link => {
+  link.addEventListener("mouseenter", e => {
+    moveSpotlightTo(e.target);
+  });
+});
+
+// --- Mouse leave logic: malli active link ki tirigi velali
+document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+  if (activeLink) {
+    moveSpotlightTo(activeLink);
+  } else {
+    spotlight.style.opacity = "0";
+  }
+});
+</script>
 
 
 
