@@ -484,33 +484,7 @@ html {
 
 
 
-/* Carousel track and images same as before */
-.carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-}
 
-.carousel-track img {
-  min-width: 100%;
-  border-radius: 10px;
-  pointer-events: none;
-  user-select: none;
-}
-
-.btn {
-  display: inline-block;
-  background-color: #0c0c0c;
-  color: #fff;
-
-  text-decoration: none;
-  border-radius: 6px;
-  transition: background-color 0.3s;
-}
-
-.btn:hover {
-  background-color: #444546;
-  
-}
 
 .hero-image {
   flex: 1 1 400px;
