@@ -171,7 +171,7 @@
 
                     <li class="menu-item-has-child">
                     
-                         <a href="#" data-toggle="collapse" aria-expanded="false" class="active">
+       <a href="product.html" data-toggle="collapse" aria-expanded="false" class="active">
     PRODUCTS <span class="dropdown-icon"></span>
   </a>
                         <ul class="submenu collapse" id="pages-submenu" data-parent="#menu-list">
@@ -375,14 +375,14 @@
 <section class="hero-banner" data-aos="fade-up">
 
 
-  <div class="hero-carousel" data-aos="fade-up">
-    <div class="carousel-track">
-      <img src="assets/images/Final-Products/pool-lights/RGB-24V_48V-NP-1.1.webp" alt="Product Image 1" />
-      <img src="assets/images/Final-Products/pool-lights/RGB-24V_48V-NP-1.2.webp" alt="Product Image 2" />
-      <img src="assets/images/Final-Products/pool-lights/RGB-24V_48V-NP-1.3.webp" alt="Product Image 3" />
-    </div>
+  <div class="hero-slider  owl-carousel" data-aos="fade-up">
+    <!-- <div class="carousel-track"> -->
+      <img class="item" src="assets/images/Final-Products/pool-lights/RGB-24V_48V-NP-1.1.webp" alt="Product Image 1" />
+      <img class="item" src="assets/images/Final-Products/pool-lights/RGB-24V_48V-NP-1.2.webp" alt="Product Image 2" />
+      <img class="item" src="assets/images/Final-Products/pool-lights/RGB-24V_48V-NP-1.3.webp" alt="Product Image 3" />
+    <!-- </div>
     <button class="carousel-btn prev">&#10094;</button>
-    <button class="carousel-btn next">&#10095;</button>
+    <button class="carousel-btn next">&#10095;</button> -->
   </div>
     <div class="hero-text">
     <h2 class="heads">RGB – Non-Pixel – 24/48V DC Pool Light</h2>
@@ -782,17 +782,17 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    $(document).ready(function(){
-      $(".hero-slider").owlCarousel({
-        items: 1,
-        loop: true,
-        nav: true,
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        animateOut: 'fadeOut',
-      });
-    });
+$(".hero-slider").owlCarousel({
+  items: 1,
+  loop: true,
+  nav: true,
+  dots: true,
+  autoplay: true,
+  autoplayTimeout: 4000,
+  autoplayHoverPause: true,
+  autoHeight: false,   // 👈 fix: don’t shrink slides
+  smartSpeed: 600
+});
 </script>
 
 		<!-- jquery include -->
@@ -848,5 +848,46 @@
 
 
 
-	</body>
+	<script>
+const spotlight = document.createElement("div");
+spotlight.classList.add("spotlight");
+document.querySelector("#header-section").appendChild(spotlight);
+
+const navLinks = document.querySelectorAll(".main-menu ul li a");
+
+// Function spotlight move cheyyadaniki
+function moveSpotlightTo(element) {
+  const rect = element.getBoundingClientRect();
+  const parentRect = document.querySelector("#header-section").getBoundingClientRect();
+
+  spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+  spotlight.style.opacity = "1";
+}
+
+// --- Page load appudu active nav item meeda pettadam
+const activeLink = document.querySelector(".main-menu ul li a.active");
+if (activeLink) {
+  moveSpotlightTo(activeLink);
+}
+
+// --- Hover logic
+navLinks.forEach(link => {
+  link.addEventListener("mouseenter", e => {
+    moveSpotlightTo(e.target);
+  });
+});
+
+// --- Mouse leave logic: malli active link ki tirigi velali
+document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+  if (activeLink) {
+    moveSpotlightTo(activeLink);
+  } else {
+    spotlight.style.opacity = "0";
+  }
+});
+</script>
+
+
+
+</body>
 </html>

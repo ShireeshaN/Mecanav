@@ -167,7 +167,7 @@
 
                     <li class="menu-item-has-child">
                     
-                         <a href="#" data-toggle="collapse" aria-expanded="false" class="active">
+                         <a href="product.html" data-toggle="collapse" aria-expanded="false" class="active">
     PRODUCTS <span class="dropdown-icon"></span>
   </a>
                         <ul class="submenu collapse" id="pages-submenu" data-parent="#menu-list">
@@ -1035,14 +1035,16 @@
 
 }
 .product-card h2 {
-  margin: 0.5rem 0;
+  margin-top: 0.1rem 0;
   color: #030303;
-  font-size: 15px;
-  padding: 10px 5px; /* reduce padding */
+  font-size: 11px;
+  /* padding: 10px 10px;  */
   text-align: center; /* optional: to center the title */
-}
+
 
     }
+
+    
 
  .mobile-toggle {
   display: none;
@@ -1055,6 +1057,7 @@
   text-align: center;
   margin-bottom: 1rem;
   text-transform: uppercase;
+}
 }
 
 @media (max-width: 768px) {
@@ -1356,6 +1359,45 @@
       });
     });
   });
+</script>
+
+<script>
+const spotlight = document.createElement("div");
+spotlight.classList.add("spotlight");
+document.querySelector("#header-section").appendChild(spotlight);
+
+const navLinks = document.querySelectorAll(".main-menu ul li a");
+
+// Function spotlight move cheyyadaniki
+function moveSpotlightTo(element) {
+  const rect = element.getBoundingClientRect();
+  const parentRect = document.querySelector("#header-section").getBoundingClientRect();
+
+  spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+  spotlight.style.opacity = "1";
+}
+
+// --- Page load appudu active nav item meeda pettadam
+const activeLink = document.querySelector(".main-menu ul li a.active");
+if (activeLink) {
+  moveSpotlightTo(activeLink);
+}
+
+// --- Hover logic
+navLinks.forEach(link => {
+  link.addEventListener("mouseenter", e => {
+    moveSpotlightTo(e.target);
+  });
+});
+
+// --- Mouse leave logic: malli active link ki tirigi velali
+document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+  if (activeLink) {
+    moveSpotlightTo(activeLink);
+  } else {
+    spotlight.style.opacity = "0";
+  }
+});
 </script>
 
 

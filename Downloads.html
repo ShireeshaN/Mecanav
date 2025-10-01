@@ -101,7 +101,7 @@
       <div class="menu-group">
         <a href="Pixel-Dot-Lights-Product.html">Pixel Dot Lights</a>
         <a href="Wall-Washers-Lights-Product.html">Wall Washers Lights</a>
-        <a href="Pillar-Highlighters-Product.html" class="active">Pillar Highlighters</a>
+        <a href="Pillar-Highlighters-Product.html" >Pillar Highlighters</a>
         <a href="Fan-Projection-Lights-Product.html">Fan Projection Lights</a>
       </div>
 
@@ -142,7 +142,7 @@
                            
                             <li class="menu-item">
                                 <a  href="contact.html">CONTACT US</a>
-                                <a  href="locate_us.html">LOCATE US</a>
+                              
 
                             </li>
                         </ul>
@@ -177,7 +177,7 @@
 
                     <li class="menu-item-has-child">
                     
-                         <a href="#" data-toggle="collapse" aria-expanded="false" >
+                         <a href="product.html" data-toggle="collapse" aria-expanded="false" >
     PRODUCTS <span class="dropdown-icon"></span>
   </a>
                         <ul class="submenu collapse" id="pages-submenu" data-parent="#menu-list">
@@ -885,6 +885,45 @@
       }
     });
   });
+</script>
+
+<script>
+const spotlight = document.createElement("div");
+spotlight.classList.add("spotlight");
+document.querySelector("#header-section").appendChild(spotlight);
+
+const navLinks = document.querySelectorAll(".main-menu ul li a");
+
+// Function spotlight move cheyyadaniki
+function moveSpotlightTo(element) {
+  const rect = element.getBoundingClientRect();
+  const parentRect = document.querySelector("#header-section").getBoundingClientRect();
+
+  spotlight.style.left = rect.left - parentRect.left + rect.width / 2 + "px";
+  spotlight.style.opacity = "1";
+}
+
+// --- Page load appudu active nav item meeda pettadam
+const activeLink = document.querySelector(".main-menu ul li a.active");
+if (activeLink) {
+  moveSpotlightTo(activeLink);
+}
+
+// --- Hover logic
+navLinks.forEach(link => {
+  link.addEventListener("mouseenter", e => {
+    moveSpotlightTo(e.target);
+  });
+});
+
+// --- Mouse leave logic: malli active link ki tirigi velali
+document.querySelector(".main-menu").addEventListener("mouseleave", () => {
+  if (activeLink) {
+    moveSpotlightTo(activeLink);
+  } else {
+    spotlight.style.opacity = "0";
+  }
+});
 </script>
 
 
