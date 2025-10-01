@@ -376,132 +376,189 @@
 		
 			
 <style>
-/* Container Styling */
-.catalogue-container {
-  max-width: 1400px;
-  margin: 40px auto;
-  margin-top: 0px;
-  padding: 20px;
-  background-color: #d7d4d4;
-}
-
-/* Typing Animation */
-.typing {
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  color: #010101;
-  width: 20ch;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid #f9fafa;
-  animation: typing 2.5s steps(20, end) forwards;
-  margin: 0 auto 20px;
-  text-align: center;
-  padding: 20px 0;
-  position: relative;
-}
-
-@keyframes typing {
-  from { width: 0 }
-  to { width: 20ch }
-}
-
-/* Grid Layout */
-.catalogue-grid {
-  display: grid;
-  gap: 20px;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 576px) {
-  .catalogue-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (min-width: 768px) {
-  .catalogue-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
-@media (min-width: 1024px) {
-  .catalogue-grid { grid-template-columns: repeat(4, 1fr); }
-}
-
-/* Card Styling */
-.catalogue-card {
-  position: relative;
-  overflow: hidden;
-
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.catalogue-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-}
-
-/* Image Styling */
-.catalogue-image {
-  position: relative;
-}
-
-.catalogue-image img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.catalogue-card:hover img {
-  transform: scale(1.05);
-}
-
-/* Hover Icons Styling */
-.hover-icons {
-  position: absolute;
-  top: 50%;
-  right: -60px; /* hidden initially */
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.hover-icons a {
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  padding: 10px;
-  border-radius: 50%;
-  font-size: 16px;
-  transition: background 0.3s ease;
-}
-
-.hover-icons a:hover {
-  background: #000;
-}
-
-.catalogue-card:hover .hover-icons {
-  right: 15px; /* slide in */
-  opacity: 1;
-}
-</style>
-
+    /* Container Styling */
+    .catalogue-container {
+      max-width: 1400px;
+      margin: 40px auto;
+      margin-top: 0px;
+      padding: 20px;
+      background-color: #d7d4d4;
+    }
+ 
+    /* Typing Animation */
+    .typing {
+      font-family: 'Poppins', sans-serif;
+      font-size: 28px;
+      color: #010101;
+      width: 20ch;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #f9fafa;
+      animation: typing 2.5s steps(20, end) forwards;
+      margin: 0 auto 20px;
+      text-align: center;
+      padding: 20px 0;
+      position: relative;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 20ch }
+    }
+ 
+    /* Grid Layout */
+    .catalogue-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 576px) {
+      .catalogue-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 768px) {
+      .catalogue-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (min-width: 1024px) {
+      .catalogue-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+ 
+    /* Card Styling */
+    .catalogue-card {
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .catalogue-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    }
+ 
+    /* Image Styling */
+    .catalogue-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .catalogue-card:hover img {
+      transform: scale(1.05);
+    }
+ 
+    /* Hover Icons Styling */
+    .hover-icons {
+      position: absolute;
+      top: 50%;
+      right: -60px;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    .hover-icons a {
+      background: rgba(0, 0, 0, 0.7);
+      color: #fff;
+      padding: 10px;
+      border-radius: 50%;
+      font-size: 16px;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+    .hover-icons a:hover {
+      background: #000;
+    }
+    .catalogue-card:hover .hover-icons {
+      right: 15px;
+      opacity: 1;
+    }
+ 
+    /* Modal Styling */
+    #downloadFormModal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .form-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+    }
+    .form-content h2 {
+      margin-bottom: 15px;
+      text-align: center;
+      color: #000000;
+    }
+    .form-content input, .form-content textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .form-content button {
+      width: 100%;
+      padding: 10px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .form-content button:hover {
+      background: #333;
+    }
+ 
+    /* Close Button ❌ */
+    .closeBtn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #333;
+      cursor: pointer;
+    }
+    .closeBtn:hover {
+      color: red;
+    }
+  </style>
+ 
 <div class="catalogue-container">
   <h1 class="typing">OUR CATALOGUES</h1>
-  <div class="catalogue-grid" id="catalogueGrid">
-
+  <div class="catalogue-grid" id="catalogueGrid"></div>
+</div>
+ 
+<!-- Modal Form -->
+<div id="downloadFormModal">
+  <div class="form-content">
+    <span class="closeBtn">&times;</span>
+    <h2 class="text-black">Join Us and Unlock Your Catalogue</h2>
+    <form id="downloadForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="phone" placeholder="Phone Number" maxlength="10" required>
+      <textarea id="siteAddress" placeholder="Site Address" required></textarea>
+      <button type="submit">Submit & Download</button>
+    </form>
   </div>
 </div>
-
+ 
 <script>
-// Remove typing cursor after animation
+/* Remove typing cursor after animation */
 setTimeout(() => {
   document.querySelector('.typing').style.borderRight = 'none';
 }, 2600);
-
-// Catalogue Data
+ 
+/* Catalogue Data */
 const catalogues = [
   { image: "assets/images/covers/wheel.webp", viewLink: "catalogues1.1.html", downloadLink: "assets/pdfs/PIXEL-LED-STRIP-WEBSITE.pdf" },
   { image: "assets/images/covers/bar.webp", viewLink: "catalogues1.2.html", downloadLink: "assets/pdfs/pixel-led-bars-web.pdf" },
@@ -519,14 +576,11 @@ const catalogues = [
   { image: "assets/images/covers/flood.webp", viewLink: "catalogues1.7.html", downloadLink: "assets/pdfs/FLOOD LIGHTS  web.pdf" },
    
   { image: "assets/images/covers/tree.webp", viewLink: "catalogues1.13.html", downloadLink: "assets/pdfs/_Tree Highlighters  web.pdf" },
-
- 
 ];
-
-
-
-// Inject Cards
+ 
 const grid = document.getElementById("catalogueGrid");
+let selectedDownload = "";
+ 
 catalogues.forEach(catalogue => {
   const card = document.createElement("div");
   card.className = "catalogue-card";
@@ -535,16 +589,85 @@ catalogues.forEach(catalogue => {
       <img src="${catalogue.image}" alt="Catalogue">
       <div class="hover-icons">
         <a href="${catalogue.viewLink}" target="_blank"><i class="fas fa-eye"></i></a>
-        <a href="${catalogue.downloadLink}" download><i class="fas fa-download"></i></a>
+        <a class="downloadBtn" data-link="${catalogue.downloadLink}"><i class="fas fa-download"></i></a>
       </div>
     </div>
   `;
   grid.appendChild(card);
 });
+ 
+/* Modal open */
+document.querySelectorAll(".downloadBtn").forEach(btn => {
+  btn.addEventListener("click", e => {
+    e.preventDefault();
+    selectedDownload = btn.getAttribute("data-link");
+    document.getElementById("downloadFormModal").style.display = "flex";
+  });
+});
+ 
+/* Close Options */
+const modal = document.getElementById("downloadFormModal");
+const closeBtn = document.querySelector(".closeBtn");
+ 
+/* ❌ Button */
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+ 
+/* ESC Key */
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") {
+    modal.style.display = "none";
+  }
+});
+ 
+/* Optional: Outside Click Close (disabled by default) */
+// window.addEventListener("click", function(e) {
+//   if (e.target === modal) {
+//     modal.style.display = "none";
+//   }
+// });
+ 
+/* Form Validation + Download */
+document.getElementById("downloadForm").addEventListener("submit", function(e){
+  e.preventDefault();
+ 
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const siteAddress = document.getElementById("siteAddress").value.trim();
+ 
+  // Validations
+  if(!name || !email || !phone || !siteAddress){
+    alert("All fields are required.");
+    return;
+  }
+  if(!email.includes("@")){
+    alert("Enter a valid email address.");
+    return;
+  }
+ 
+  // Phone validation (India: starts with 6/7/8/9, UK: starts with 07 and 11 digits)
+  const indiaRegex = /^[6-9]\d{9}$/;  
+  const ukRegex = /^07\d{9}$/;
+ 
+  if(!(indiaRegex.test(phone) || ukRegex.test(phone))){
+    alert("Enter a valid Indian (starts with 6/7/8/9) or UK (07xxxxxxxxx) phone number.");
+    return;
+  }
+ 
+  // Close Modal
+  modal.style.display = "none";
+ 
+  // Trigger Download
+  const a = document.createElement("a");
+  a.href = selectedDownload;
+  a.setAttribute("download", "");
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+});
 </script>
-
-
-
 			
 
 		</main>
