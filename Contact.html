@@ -435,12 +435,14 @@
         <!-- Contact Form -->
         <div class="col-lg-6">
           <div class="contact-box">
-           <form
+<form
+  id="mecanavForm"
   action="https://docs.google.com/forms/d/e/1FAIpQLSciugRivuyedJbIg43J4NRSpY_Dkws23M4re6GvCv8WaX8ogQ/formResponse"
   method="POST"
   target="hidden_iframe"
   onsubmit="submitted=true;"
 >
+
 
   <div class="mb-3">
     <label class="form-label">Name</label>
@@ -482,6 +484,11 @@
 </form>
 
 <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+<div id="successMsg" style="display:none; color:green; margin-top:15px;">
+  ✅ Thank you! Your message has been sent.
+</div>
+
 
           </div>
         </div>
@@ -1138,6 +1145,19 @@ document.querySelector(".main-menu").addEventListener("mouseleave", () => {
   }
 });
 </script>
+
+<script>
+  var submitted = false;
+
+  document.querySelector('iframe[name="hidden_iframe"]').addEventListener('load', function () {
+    if (submitted) {
+      document.getElementById("mecanavForm").reset();
+      document.getElementById("successMsg").style.display = "block";
+      submitted = false;
+    }
+  });
+</script>
+
 
 
 	</body>
