@@ -413,8 +413,8 @@
             <p class="mb-4">We'd love to hear from you. Reach out for project inquiries, feedback, or general questions.</p>
             <ul class="list-unstyled contact-info">
               <li><i class="fas fa-map-marker-alt text-info"></i><span>123 Light Street, Glow City</span></li>
-              <li><i class="fas fa-phone-alt text-success"></i><span>+1 234 567 890</span></li>
-              <li><i class="fas fa-envelope text-danger"></i><span>contact@facadelighting.com</span></li>
+              <!-- <li><i class="fas fa-phone-alt text-success"></i><span>+1 234 567 890</span></li> -->
+              <li><i class="fas fa-envelope text-danger"></i><span>sales@mecanav.uk</span></li>
             </ul>
             <div class="social-icons">
               <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -435,21 +435,54 @@
         <!-- Contact Form -->
         <div class="col-lg-6">
           <div class="contact-box">
-            <form>
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Your Name">
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Your Email">
-              </div>
-              <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea id="message" class="form-control" rows="5" placeholder="Your Message"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary w-100">Send Message</button>
-            </form>
+           <form
+  action="https://docs.google.com/forms/d/e/1FAIpQLSciugRivuyedJbIg43J4NRSpY_Dkws23M4re6GvCv8WaX8ogQ/formResponse"
+  method="POST"
+  target="hidden_iframe"
+  onsubmit="submitted=true;"
+>
+
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="entry.1323039583"
+      placeholder="Your Name"
+      required
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input
+      type="email"
+      class="form-control"
+      name="entry.140045828"
+      placeholder="Your Email"
+      required
+    >
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Message</label>
+    <textarea
+      class="form-control"
+      rows="5"
+      name="entry.165633033"
+      placeholder="Your Message"
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">
+    Send Message
+  </button>
+
+</form>
+
+<iframe name="hidden_iframe" style="display:none;"></iframe>
+
           </div>
         </div>
       </div>
